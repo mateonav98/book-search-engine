@@ -110,7 +110,7 @@ const SearchBooks = () => {
         <CardColumns>
           {searchedBooks.map((book, index) => {
             return (
-              <Card key={book._id} border='dark'>
+              <Card key={book.bookId} border='dark'>
                 {book.image ? (
                   <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
                 ) : null}
