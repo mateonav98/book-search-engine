@@ -34,13 +34,14 @@ const resolvers = {
             if (context.user) {
                 const book = await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $push: { savedBooks: {BookInput} } },
+                    { $push: { savedBooks: BookInput } },
                     { new: true }
                 );
                 return book;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+
         removeBook: async (parent, {bookId}, context) => {
             if (context.user) {
                 const book = await User.findByIdAndUpdate(
